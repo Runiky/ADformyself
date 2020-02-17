@@ -17,7 +17,7 @@ var DISPLAY_NAMES = [ null, "First", "Second", "Third", "Fourth", "Fifth", "Sixt
 var forceHardReset = false;
 var player = {
     money: new Decimal(10),
-    tickSpeedCost: new Decimal(1000),
+    tickSpeedCost: new Decimal(11),
     tickspeed: new Decimal(1000),
     firstCost: new Decimal(10),
     secondCost: new Decimal(20),
@@ -57,7 +57,7 @@ var player = {
     challenges: [],
     currentChallenge: "",
     infinityPoints: new Decimal(0),
-    infinitied: 0,
+    infinitied: 1,
     infinitiedBank: 0,
     totalTimePlayed: 0,
     bestInfinityTime: 9999999999,
@@ -221,17 +221,17 @@ var player = {
         amount: new Decimal(0),
         unl: false,
         chance: 0.01,
-        chanceCost: new Decimal(1e150),
+        chanceCost: new Decimal(1e15),
         interval: 1000,
-        intervalCost: new Decimal(1e140),
+        intervalCost: new Decimal(1e14),
         gal: 0,
         galaxies: 0,
-        galCost: new Decimal(1e170),
+        galCost: new Decimal(1e17),
         auto: [false, false, false]
     },
     timestudy: {
         theorem: 0,
-        amcost: new Decimal("1e20000"),
+        amcost: new Decimal("1e20"),
         ipcost: new Decimal(1),
         epcost: new Decimal(1),
         studies: [],
@@ -285,7 +285,7 @@ var player = {
         secretThemeKey: 0,
         eternityconfirm: true,
         commas: true,
-        updateRate: 50,
+        updateRate: 30,
         chart: {
             updateRate: 1000,
             duration: 10,
@@ -378,10 +378,10 @@ document.getElementById("theme").onclick = function () {
 }
 
 
-let kongIPMult = 1
-let kongDimMult = 1
-let kongAllDimMult = 1
-let kongEPMult = 1
+let kongIPMult = 100
+let kongDimMult = 100
+let kongAllDimMult = 100
+let kongEPMult = 100
 
 
 
@@ -560,7 +560,7 @@ function updateDimensions() {
         if (player.timestudy.studies.includes(225)) extraGals += Math.floor(player.replicanti.amount.e / 1000)
         if (player.timestudy.studies.includes(226)) extraGals += Math.floor(player.replicanti.gal / 15)
         var galString = ""
-        if (player.galaxies >= 800) galString += "Remote Antimatter Galaxies (";
+        if (player.galaxies >= 80000) galString += "Remote Antimatter Galaxies (";
         else if (player.galaxies >= getGalaxyCostScalingStart() || player.currentEternityChall === "eterc5") galString += "Distant Antimatter Galaxies (";
         else galString += "Antimatter Galaxies (";
         galString += player.galaxies;
@@ -3433,12 +3433,12 @@ function startChallenge(name, target) {
     if (player.currentChallenge != "") document.getElementById(player.currentChallenge).textContent = "Start"
     player = {
         money: new Decimal(10),
-        tickSpeedCost: new Decimal(1000),
+        tickSpeedCost: new Decimal(11),
         tickspeed: new Decimal(1000),
         firstCost: new Decimal(10),
-        secondCost: new Decimal(100),
-        thirdCost: new Decimal(10000),
-        fourthCost: new Decimal(1000000),
+        secondCost: new Decimal(10),
+        thirdCost: new Decimal(100),
+        fourthCost: new Decimal(100),
         fifthCost: new Decimal(1e9),
         sixthCost: new Decimal(1e13),
         seventhCost: new Decimal(1e18),
