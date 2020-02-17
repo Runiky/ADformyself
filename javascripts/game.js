@@ -20,13 +20,13 @@ var player = {
     tickSpeedCost: new Decimal(1000),
     tickspeed: new Decimal(1000),
     firstCost: new Decimal(10),
-    secondCost: new Decimal(100),
-    thirdCost: new Decimal(10000),
-    fourthCost: new Decimal(1000000),
-    fifthCost: new Decimal(1e9),
-    sixthCost: new Decimal(1e13),
-    seventhCost: new Decimal(1e18),
-    eightCost: new Decimal(1e24),
+    secondCost: new Decimal(20),
+    thirdCost: new Decimal(30),
+    fourthCost: new Decimal(40),
+    fifthCost: new Decimal(50),
+    sixthCost: new Decimal(60),
+    seventhCost: new Decimal(70),
+    eightCost: new Decimal(80),
     firstAmount: new Decimal(0),
     secondAmount: new Decimal(0),
     thirdAmount: new Decimal(0),
@@ -71,7 +71,7 @@ var player = {
     interval: null,
     lastUpdate: new Date().getTime(),
     autobuyers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    costMultipliers: [new Decimal(1e3), new Decimal(1e4), new Decimal(1e5), new Decimal(1e6), new Decimal(1e8), new Decimal(1e10), new Decimal(1e12), new Decimal(1e15)],
+    costMultipliers: [new Decimal(1e2), new Decimal(1e2), new Decimal(1e2), new Decimal(1e3), new Decimal(1e3), new Decimal(1e3), new Decimal(1e5), new Decimal(1e7)],
     tickspeedMultiplier: new Decimal(10),
     chall2Pow: 1,
     chall3Pow: new Decimal(0.01),
@@ -272,7 +272,7 @@ var player = {
     why: 0,
     options: {
         newsHidden: false,
-        notation: "Mixed scientific",
+        notation: "Scientific",
         //Standard = normal prefixed numbers, Scientific = standard form, Engineering = powers of 3.
         scientific: false,
         challConf: false,
@@ -441,15 +441,15 @@ function getInfinitied() {return Math.max(player.infinitied + player.infinitiedB
 
 
 function getGalaxyCostScalingStart() {
-    var n = 100 + ECTimesCompleted("eterc5")*5
+    var n = 666 + ECTimesCompleted("eterc5")*5
     if (player.timestudy.studies.includes(223)) n += 7
     if (player.timestudy.studies.includes(224)) n += Math.floor(player.resets/2000)
     return n
 }
 
 function getGalaxyRequirement() {
-    let amount = 80 + ((player.galaxies) * 60);
-    if (player.timestudy.studies.includes(42)) amount = 80 + ((player.galaxies) * 52)
+    let amount = 80 + ((player.galaxies) * 38);
+    if (player.timestudy.studies.includes(42)) amount = 80 + ((player.galaxies) * 32)
     if (player.currentChallenge == "challenge4") amount = 99 + ((player.galaxies) * 90)
 
     let galaxyCostScalingStart = getGalaxyCostScalingStart()
@@ -1031,7 +1031,7 @@ function buyEternityUpgrade(name, cost) {
 
 function buyEPMult() {
     if (player.eternityPoints.gte(player.epmultCost)) {
-        player.epmult = player.epmult.times(5)
+        player.epmult = player.epmult.times(25)
         player.eternityBuyer.limit = player.eternityBuyer.limit.times(5)
         document.getElementById("priority13").value = formatValue("Scientific", player.eternityBuyer.limit, 2, 0);
         player.eternityPoints = player.eternityPoints.minus(player.epmultCost)
@@ -1269,7 +1269,7 @@ function updateInfCosts() {
 // Replicanti stuff
 
 function unlockReplicantis() {
-    if (player.infinityPoints.gte(1e140)) {
+    if (player.infinityPoints.gte(1e50)) {
         document.getElementById("replicantidiv").style.display="inline-block"
         document.getElementById("replicantiunlock").style.display="none"
         player.replicanti.unl = true
@@ -1323,7 +1323,7 @@ function upgradeReplicantiGalaxy() {
 function replicantiGalaxy() {
     if (player.replicanti.amount.gte(Number.MAX_VALUE) && (!player.timestudy.studies.includes(131) ? player.replicanti.galaxies < player.replicanti.gal : player.replicanti.galaxies < Math.floor(player.replicanti.gal * 1.5))) {
         if (player.achievements.includes("r126")) player.replicanti.amount = player.replicanti.amount.dividedBy(Number.MAX_VALUE)
-        else player.replicanti.amount = new Decimal(1)
+        else player.replicanti.amount = new Decimal(1e200)
         player.replicanti.galaxies += 1
         player.galaxies-=1
         galaxyReset()
