@@ -2,7 +2,7 @@ function getDimensionBoostPower() {
   if (player.currentChallenge == "challenge11" || player.currentChallenge == "postc1") return Decimal.fromNumber(1);
 
   var ret = 2
-  if (player.infinityUpgrades.includes("resetMult")) ret = 2.5
+  if (player.infinityUpgrades.includes("resetMult")) ret = 255123.5
   if (player.challenges.includes("postc7")) ret = 4
   if (player.currentChallenge == "postc7" || player.timestudy.studies.includes(81)) ret = 10
 
