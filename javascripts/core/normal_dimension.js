@@ -197,7 +197,7 @@ function hasInfinityMult(tier) {
     
     function getDimensionCostMultiplier(tier) {
     
-        var multiplier2 = [new Decimal(1e3),new Decimal(5e3),new Decimal(1e4),new Decimal(1.2e4),new Decimal(1.8e4),new Decimal(2.6e4),new Decimal(3.2e4),new Decimal(4.2e4)];
+        var multiplier2 = [new Decimal(3),new Decimal(5),new Decimal(7),new Decimal(1.2e4),new Decimal(1.8e4),new Decimal(2.6e4),new Decimal(3.2e4),new Decimal(4.2e4)];
         if (player.currentChallenge == "challenge10") return multiplier2[tier - 1];
         else return player.costMultipliers[tier - 1];
     }
@@ -205,19 +205,19 @@ function hasInfinityMult(tier) {
     function onBuyDimension(tier) {
         if (!player.break) {
             switch (tier) {
-                case 1: giveAchievement("You gotta start somewhere"); break;
-                case 2: giveAchievement("100 antimatter is a lot"); break;
-                case 3: giveAchievement("Half life 3 confirmed"); break;
-                case 4: giveAchievement("L4D: Left 4 Dimensions"); break;
-                case 5: giveAchievement("5 Dimension Antimatter Punch"); break;
-                case 6: giveAchievement("We couldn't afford 9"); break;
-                case 7: giveAchievement("Not a luck related achievement"); break;
-                case 8: giveAchievement("90 degrees to infinity"); break;
+                case 1: giveAchievement("OMG!!! "); break;
+                case 2: giveAchievement("Lol good job I guess"); break;
+                case 3: giveAchievement("OH BABY A TRIPLE"); break;
+                case 4: giveAchievement("Noice."); break;
+                case 5: giveAchievement("First death."); break;
+                case 6: giveAchievement("6 is actually 9"); break;
+                case 7: giveAchievement("Do you like dying?"); break;
+                case 8: giveAchievement("You like dying."); break;
             }
         }
     
         if (player.eightAmount.round().eq(99)) {
-            giveAchievement("The 9th Dimension is a lie");
+            giveAchievement("The 9th Dimension maybe is a lie.");
         }
     
         player.postC4Tier = tier;
